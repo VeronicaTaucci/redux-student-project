@@ -8,7 +8,8 @@ const AddNewStudent = () => {
   const [fName, setFName] = useState('');
   const [city, setCity] = useState('');
   const dispatch = useDispatch();
-  const students = useSelector((state) => state);
+  const students = useSelector((state) => state.students);
+  let allStudents = [];
   
 
 
@@ -25,6 +26,13 @@ const AddNewStudent = () => {
       city
     }
     // console.log(newStudent);
+
+  allStudents=[...students,newStudent]
+    console.log("all students",allStudents);
+
+
+    let allSorted = allStudents.sort((a, b) => a.fName > b.fName ? 1 : -1);
+
     dispatch({
       type: "ADD_STUDENT",
       payload: newStudent
@@ -33,6 +41,11 @@ const AddNewStudent = () => {
     setFName('');
   }
   
+
+  // let student1 = students.sort((a, b) =>
+  //   a.fName.toLowerCase() > b.fName.toLowerCase() ? 1 : -1
+  // );
+  // console.log(student1);
   //add Kanye West to the global state of students
   // show the current student count
   return (

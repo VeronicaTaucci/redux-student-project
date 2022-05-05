@@ -9,8 +9,8 @@ const AddItemInOrder = () => {
   const [city, setCity] = useState('');
   const dispatch = useDispatch();
   const students = useSelector((state) => state.students);
-  let allStudents = [];
-  let [allSorted, setAllSorted] = useState([]);
+  let allStudents = []; //will add students from state plus the new student
+  let [allSorted, setAllSorted] = useState([]); //[{}] --sorted: these are all students including the new student
 
 
 
